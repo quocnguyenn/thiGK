@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+
+</head>
+<body>
+    <p>Danh sách sản phẩm</p>
+    <table border="1">
+        <tr>
+            <th>Mã SP</th>
+            <th>Tên SP</th>
+            <th>Số Lượng</th>
+            <th>Xóa</th>
+        </tr>
+        <% for(let i=0; i < sanpham.length; i++) { %>
+        <tr>
+            <td><%= sanpham[i].maSP %></td>
+            <td><%= sanpham[i].tenSP %></td>
+            <td><%= sanpham[i].soLuong %></td>
+            <td>
+                <form action="/delete" method="POST">
+                    <input type="hidden" name="maSP" value="<%= sanpham[i].maSP %>">
+                    <input type="submit" value="Xóa">
+                </form>
+            </td>
+        </tr>
+        <%}%>
+    </table>
+    
+</body>
+</html>
